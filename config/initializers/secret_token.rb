@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Perforator::Application.config.secret_key_base = 'a8ca4762211e0939bacf8ab7b6157b5b73f4d5aa63d79fb7e09c659b75014989bc7b7cfc902614840b3b3d596c7ed5c9d67fa9ad38720c14945245d2318625bd'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Perforator::Application.config.secret_key_base = secure_token
