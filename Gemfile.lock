@@ -93,6 +93,7 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+    sanitize-url (0.1.4)
     sass (3.2.12)
     sass-rails (4.0.0)
       railties (>= 4.0.0.beta, < 5.0)
@@ -137,6 +138,7 @@ DEPENDENCIES
   jquery-rails
   rails (= 4.0.0)
   rspec-rails (= 2.13.1)
+  sanitize-url
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3

@@ -5,10 +5,12 @@ describe 'URL form', :type => :feature do
     visit '/'
     page.should have_field 'URL'
   end
-  it 'accepts URL' do
+  it 'processes URL' do
     visit '/'
     fill_in 'URL', :with => 'http://google.com'
     click_button 'Measure!'
+    page.should have_text 'Analyzing http://google.com'
+    page.should have_text 'Done!'
   end
   it 'has a heading "Perforator"' do
     visit '/'

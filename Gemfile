@@ -52,3 +52,6 @@ end
 group :development, :test do
   gem 'rspec-rails', '2.13.1'
 end
+
+# For netget. I might not need this!
+gem 'sanitize-url'
